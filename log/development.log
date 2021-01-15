@@ -253,3 +253,246 @@ Processing by HomeController#home as HTML
 Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 8924)
 
 
+Started GET "/" for ::1 at 2021-01-15 17:04:11 +0100
+Processing by HomeController#home as HTML
+  Rendering home/home.html.erb within layouts/application
+  Rendered home/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 8826)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3823582839198821475)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210115160815)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210115160815"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3823582839198821475)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-01-15 17:45:42 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  Rendered users/main.erb within layouts/application (Duration: 0.4ms | Allocations: 204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 8666)
+
+
+Started GET "/" for ::1 at 2021-01-15 17:50:40 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  Rendered users/main.erb within layouts/application (Duration: 9.9ms | Allocations: 3745)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 4950)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    31: 
+    32: <div class="container">
+    33:   
+    34:   <% @users.each do |user| %>
+    35:     <div class="row">
+    36:       <div class="col-sm-2">
+    37:         <%= user.username %>
+  
+app/views/users/main.erb:34
+Started GET "/" for ::1 at 2021-01-15 17:56:51 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.2ms | Allocations: 658)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 2.7ms | Allocations: 5829)
+
+
+Started GET "/" for ::1 at 2021-01-15 17:58:41 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 0.7ms | Allocations: 610)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.0ms | Allocations: 5373)
+
+
+Started GET "/create?username=Eryk" for ::1 at 2021-01-15 17:58:47 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"Eryk"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Eryk"], ["created_at", "2021-01-15 16:58:47.775066"], ["updated_at", "2021-01-15 16:58:47.775066"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 3.8ms | Allocations: 5391)
+
+
+Started GET "/" for ::1 at 2021-01-15 17:58:47 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.1ms | Allocations: 632)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 4649)
+
+
+Started GET "/create?username=Grzegorz" for ::1 at 2021-01-15 17:58:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"Grzegorz"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Grzegorz"], ["created_at", "2021-01-15 16:58:55.847149"], ["updated_at", "2021-01-15 16:58:55.847149"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.5ms | Allocations: 2523)
+
+
+Started GET "/" for ::1 at 2021-01-15 17:58:55 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.2ms | Allocations: 636)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 4655)
+
+
+Started GET "/create?username=Arek" for ::1 at 2021-01-15 17:59:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"Arek"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Arek"], ["created_at", "2021-01-15 16:59:00.536734"], ["updated_at", "2021-01-15 16:59:00.536734"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.7ms | Allocations: 2522)
+
+
+Started GET "/" for ::1 at 2021-01-15 17:59:00 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.4ms | Allocations: 654)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 4677)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:01:46 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.2ms | Allocations: 652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 4667)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:04:27 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 2.0ms | Allocations: 891)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 5928)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:04:42 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.6ms | Allocations: 652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.4ms | Allocations: 4657)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:04:43 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.3ms | Allocations: 652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 4666)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:04:43 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.1ms | Allocations: 652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 4680)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:04:48 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.4ms | Allocations: 882)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 5873)
+
+
+Started GET "/destroy?user_id=1" for ::1 at 2021-01-15 18:09:18 +0100
+Processing by UsersController#destroy as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `destroy'
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `destroy'
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 5.9ms | Allocations: 5046)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:09:18 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 1.2ms | Allocations: 636)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 4657)
+
+
+Started GET "/create?username=Eryk" for ::1 at 2021-01-15 18:09:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"Eryk"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Eryk"], ["created_at", "2021-01-15 17:09:23.569103"], ["updated_at", "2021-01-15 17:09:23.569103"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms | Allocations: 2516)
+
+
+Started GET "/" for ::1 at 2021-01-15 18:09:23 +0100
+Processing by UsersController#main as HTML
+  Rendering users/main.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" ASC[0m
+  ↳ app/views/users/main.erb:34
+  Rendered users/main.erb within layouts/application (Duration: 0.8ms | Allocations: 652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 4663)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]

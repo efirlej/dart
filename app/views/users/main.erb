@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/create" >
+        <label for="username">  <p class="font-weight-bold">Add user</p> </label><br>
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>   
+  </div>
+</div>
+
+<p>
+</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <p class="font-weight-bold">Name</p>
+    </div>
+    <div class="col-sm-2">
+      <p class="font-weight-bold"></p>
+    </div>
+    <div class="col-sm-2">
+      <p class="font-weight-bold"></p>
+    </div>
+    <div class="col-md-auto">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  
+  <% @users.each do |user| %>
+    <div class="row">
+      <div class="col-sm-2">
+        <%= user.username %>
+      </div>
+      <div class="col-sm-2">
+        <%= %>
+      </div>
+      <div class="col-sm-2">
+        <%= %>
+      </div>
+      <div class="col-md-auto">
+        <form class="form-inline" action="/destroy" style="display: inline;">
+          <input type="hidden" name="user_id" value="<%= user.id %>">
+          <button type="submit" class="btn btn-outline-dark btn-sm">Remove user</button>
+        </form>
+      </div>
+    </div>
+  <% end %>
+</div>

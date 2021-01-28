@@ -2,6 +2,8 @@ class UsersController < ApplicationController
     def create
       user = User.new
       user.username = params["username"]
+      user.legs_won = 0
+      user.legs_played = 0
       user.save
       redirect_to action: "main"
     end
